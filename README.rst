@@ -4,9 +4,10 @@ Salesforce Extractor
 Disclaimer
 -----------
 I'm not a "developer" by traditional means, so I apologize if the code is messy and doesn't adhere to many standards. 
-It was built for a work solution, but, it has tons of reusability. 
 
-If you wish, you can alter the file extensions to save them in different formats (or do away with saving the results at all).
+This code was built for a very specific use case: query salesforce objects, save them to CSV files, transform the data (in this case, append fields and values), and push the data via SFTP.
+
+*You can reuse bits and pieces of this code to create your own solution*
 
 All successful queries will be written to log.txt alongside any errors and the traceback call.
 
