@@ -111,15 +111,9 @@ def date_time_log(log):
 	# Write the current time to log.txt
 	log.write("\n" + datetime.now().ctime() + "\n")
 
-# Replace 'sf_object' with the object you want to query
-# Replace 'query' with the SOQL statement you want to use for the data
-# Replace file_name with the output file name you want for the CSV file
-def main(log):
+def main(log, sf_object, query, file_name):
 	""" Query the data with specific objects and SOQL statements. """
 		
-	sf_object = "Contact" # Define the object you want to query
-	query = "SELECT Id,FirstName,LastName,Email,Birthdate FROM Contact" # Set SOQL Query
-	file_name = "contact_data" # Name the output file you set
 	try:  # Try the query
 		sf_extract(sf_object, query, file_name)
 	except Exception as e: # If the query fails, log the results, date/time, and error
@@ -128,32 +122,27 @@ def main(log):
 	else: # If the query is successful, log the results and date/time
 		log.write("\n" + "-- Successful " + sf_object + " query --"),date_time_log(log)
 
+# Ensures that the program is run directly and not through a module
+# Replace 'sf_object' with the object you want to query
+# Replace 'query' with the SOQL statement you want to use for the data
+# Replace file_name with the output file name you want for the CSV file
+if __name__ == "__main__":
+
+	sf_object = "Contact" # Define the object you want to query
+	query = "SELECT Id,FirstName,LastName,Email FROM Contact" # Set SOQL Query
+	file_name = "contact_data" # Name the output file you set
+	main(log, sf_object, query, file_name) # Call the main function
+	
 	sf_object = "Lead"
 	query = "SELECT Id,FirstName,LastName,Email FROM Lead"
 	file_name = "lead_data"
-	try:
-		sf_extract(sf_object, query, file_name)
-	except Exception as e:
-		log.write("\n" + "--! FAILED to query " + sf_object + " object !--"),date_time_log(log) 
-		log.write("\n" + str(e) + "\n")
-	else:
-		log.write("\n" + "-- Successful " + sf_object + " query --"),date_time_log(log)
-
+	main(log, sf_object, query, file_name)
+	
 	sf_object = "Opportunity"
 	query = "SELECT Id,StageName FROM Opportunity"
 	file_name = "opportunity_data"
-	try:
-		sf_extract(sf_object, query, file_name)
-	except Exception as e:
-		log.write("\n" + "--! FAILED to query " + sf_object + " object !--"),date_time_log(log) 
-		log.write("\n" + str(e) + "\n")
-	else:
-		log.write("\n" + "-- Successful " + sf_object + " query --"),date_time_log(log)
-
-# Ensures that the program is run directly and not through a module
-if __name__ == "__main__":
-	main(log)
-
+	main(log, sf_object, query, file_name)
+	
 # Close the SFTP connection and log file
 sftp.close()
 log.close()
