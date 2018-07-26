@@ -8,16 +8,7 @@ import pysftp
 import config
 from salesforce_bulk import SalesforceBulk
 
-
-# Set the Salesforce username, password, and token
-sf_username = config.salesforce["username"]
-sf_password = config.salesforce["password"]
-sf_security_token = config.salesforce["token"]
-
-# Set the sftp host, username, password, and hostkeys
-sftp_host = config.sftp["host"]
-sftp_username = config.sftp["username"]
-sftp_password = config.sftp["password"]
+# Set the sftp hostkeys
 cnopts = pysftp.CnOpts()
 cnopts.hostkeys = None
 
@@ -28,14 +19,15 @@ log.write("\n" + "|---------------------------------------|" + "\n")
 log.write("PROGRAM STARTED: "),log.write(datetime.now().ctime())
 log.write("\n" + "|---------------------------------------|" + "\n")
 
+# Set the Salesforce username, password, and token
 # Establish connection to Salesforce with credentials
 # Include Sandbox=True if it's a Sandbox org
-sf = SalesforceBulk(username=sf_username, password=sf_password,
-	security_token=sf_security_token)
+sf = SalesforceBulk(username=config.salesforce["username"], password=config.salesforce["password"],
+	security_token=config.salesforce["token"])
 
 # Establish connection to sftp server with credentials
-sftp = pysftp.Connection(host=sftp_host, username=sftp_username, password=sftp_password,
-	cnopts=cnopts)
+sftp = pysftp.Connection(host=config.sftp["host"], username=config.sftp["username"],
+	password=config.sftp["password"], cnopts=cnopts)
 
 def sf_extract(sf_object, query, file_name):
 	""" Queries Salesforce objects and creates CSV files with that data """
