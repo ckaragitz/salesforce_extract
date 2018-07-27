@@ -103,7 +103,7 @@ def date_time_log(log):
 	# Write the current time to log.txt
 	log.write("\n" + datetime.now().ctime() + "\n")
 
-def main(log, sf_object, query, file_name):
+def execute(log, sf_object, query, file_name):
 	""" Query the data with specific objects and SOQL statements. """
 		
 	try:  # Try the query
@@ -123,17 +123,17 @@ if __name__ == "__main__":
 	sf_object = "Contact" # Define the object you want to query
 	query = "SELECT Id,FirstName,LastName,Email FROM Contact" # Set SOQL Query
 	file_name = "contact_data" # Name the output file you set
-	main(log, sf_object, query, file_name) # Call the main function
+	execute(log, sf_object, query, file_name) # Call the main function
 	
 	sf_object = "Lead"
 	query = "SELECT Id,FirstName,LastName,Email FROM Lead"
 	file_name = "lead_data"
-	main(log, sf_object, query, file_name)
+	execute(log, sf_object, query, file_name)
 	
 	sf_object = "Opportunity"
 	query = "SELECT Id,StageName FROM Opportunity"
 	file_name = "opportunity_data"
-	main(log, sf_object, query, file_name)
+	execute(log, sf_object, query, file_name)
 	
 # Close the SFTP connection and log file
 sftp.close()
