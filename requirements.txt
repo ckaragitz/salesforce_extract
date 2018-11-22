@@ -4,5 +4,3 @@ datetime
 unicodecsv
 PyQt5
 functools
-
-# pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org <library name>
