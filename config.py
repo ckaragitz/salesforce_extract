@@ -2,16 +2,16 @@
 
 # Dictionary of Salesforce credentials
 salesforce = {
-	"username": "cameron.karagitz@flagstar.com.slalom2",
-	"password": "chaos01!",
-	"token": "GhLOY8ghf5P0MW4qUYn2VN6EA"
+	"username": "",
+	"password": "",
+	"token": ""
 }
 
 # Dictionary of SFTP credentials
 sftp = {
-	"host": "unixftpz.flagstar.com",
-	"username": "topmindftp",
-	"password": "DFJteasi694$%#sjd!",
+	"host": "",
+	"username": "",
+	"password": "",
 	"hostkeys": "",
 	"port": "22"
 }
@@ -19,8 +19,8 @@ sftp = {
 """# Dictionary of Surefire API credentials
 surefire_api ={
 	"url": "https://apigateway.tomnx.com/sf3api/ip/uploader/jobs",
-	"apikey": "5a00a2a9c13bf972212a41ea51561b0acf7140b294b944f7d2c7de1a",
-	"clientkey": "88651c344d0d74c2690019d0801bbeac",
+	"apikey": "",
+	"clientkey": "",
 	"mappingtag": "",
 }"""
 
@@ -99,8 +99,3 @@ milestone_keys = [
 	"Funding Cancel",
 	"Funding Voided"
 	]
-
-# Keys to possibly omit from the script as it writes out the values
-# (since these get written out as their own separate values now)
-omit_keys = ["Mortgage_Status__c","Mortgage_Status_Date__c"]
-
