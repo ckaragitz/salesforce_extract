@@ -26,3 +26,11 @@ This Python script will query a set of objects in Salesforce, save the results i
 It was originally built to save time and energy since each object in Salesforce needs to be queried separately. Instead of querying each object in Data Loader, run the script, save the results, and then do what you wish from there. 
 
 It's simple: Plug and Play.
+
+salesforce_extract_v2
+=======
+A complete revamp of the original salesforce_extract project. This was the finalized version that was delivered. Leaving the other one up for simplicity purposes as this is a more advanced script.
+
+This version of the application provides a user friendly GUI to set the query parameters. It also send the data directly to Surefire for consumption into their marketing system.
+
+Again, as I stated in the original script, this code was created for a corporate data integration project and is extremely specific to their use case.
