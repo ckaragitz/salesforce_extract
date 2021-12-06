@@ -29,8 +29,6 @@ It's simple: Plug and Play.
 
 salesforce_extract_v2
 =======
-A complete revamp of the original salesforce_extract project. This was the finalized version that was delivered. Leaving the other one up for simplicity purposes as this is a more advanced script.
+A complete revamp of the original salesforce_extract project. This was my finalized version with added features. Leaving the other one up for simplicity purposes as this is a more advanced script.
 
-This version of the application provides a user friendly GUI to set the query parameters. It also send the data directly to Surefire for consumption into their marketing system.
-
-Again, as I stated in the original script, this code was created for a corporate data integration project and is extremely specific to their use case.
+This version of the application provides a user friendly GUI to set the query parameters. It also sends the data directly to a marketing solution.
